@@ -50,6 +50,9 @@ Execute a aplicação:
 npm run dev
 ```
 
+é necessária a instalação do Node.js 
+
+
 ---
 
 # Instalação do Backend
@@ -172,3 +175,8 @@ Criar uma branch para cada funcionalidade.
 Utilizar mensagens de commit claras e objetivas.
 Testar a funcionalidade antes de abrir um Pull Request.
 Manter o código organizado e documentado.
+
+
+
+# Conceito de pronto:
+Somente vai ficar pronto quando o Front-End, Back-End e SQL estiver se comunicando, quando o código estiver revisado e funcionando de acordo com o esperado.
