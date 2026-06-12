@@ -50,6 +50,9 @@ Execute a aplicação:
 npm run dev
 ```
 
+é necessária a instalação do Node.js 
+
+
 ---
 
 # Instalação do Backend
