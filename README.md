@@ -26,7 +26,7 @@ A plataforma permitirá cadastrar e gerenciar:
 
 ### Banco de Dados
 
-* SQL Server (em definição para versões futuras)
+* Supabase
 
 ---
 
