@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import {
   House,
@@ -8,100 +9,182 @@ import {
   Timeline,
   BookOpen,
   Bot,
+  UserRound,
 } from "lucide-react";
 
 function Sidebar() {
   return (
-    <div className="bg-base-white w-1/4 flex flex-col px-8">
+<div className="w-full flex-[3] flex flex-col gap-2 px-3">
+  
+  {/* Logo */}
+      <div className="flex-1 flex flex-col justify-center items-center mt-3">
+  <img className="rounded-full" src="./src/assets/LogoSnopty.png" alt="LogoSite" width={70} height={70} />
 
-      {/* Logo */}
-      <div className="flex-1 flex justify-center items-center">
-        <img src="" alt="" />
-
-        <p className="font-poppins font-semibold">
+        <p className="font-poppins font-semibold mb-1">
           Synopt
         </p>
       </div>
 
-      <div className="w-full flex-[3] flex flex-col gap-2">
+      <div className="w-full flex-[3] flex flex-col gap-2"></div>
 
-        {/* Início */}
-        <div className="w-full">
-          <Link to="/" className="block">
-            <div className="bg-base-white text-black py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center border-2 border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-              <House />
-              <p className="font-bold">Início</p>
-            </div>
-          </Link>
+  {/* Início */}
+  <div className="w-full">
+    <NavLink to="/" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <House />
+          <p className="font-bold">Início</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-        {/* Conteúdos */}
-        <div className="w-full">
-          <Link to="/conteudos" className="block">
-            <div className="bg-primary-blue text-base-white py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center cursor-pointer">
-              <LayoutDashboard />
-              <p className="font-bold">Conteúdos</p>
-            </div>
-          </Link>
+  {/* Conteúdos */}
+  <div className="w-full">
+    <NavLink to="/conteudos" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <LayoutDashboard />
+          <p className="font-bold">Conteúdos</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-        {/* Calendário */}
-        <div className="w-full">
-          <Link to="/calendario" className="block">
-            <div className="bg-base-white text-black py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center border-2 border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-              <Calendar />
-              <p className="font-bold">Calendário</p>
-            </div>
-          </Link>
+  {/* Calendário */}
+  <div className="w-full">
+    <NavLink to="/calendario" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <Calendar />
+          <p className="font-bold">Calendário</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-        {/* IA & Tecnologias */}
-        <div className="w-full">
-          <Link to="/tecnologias" className="block">
-            <div className="bg-base-white text-black py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center border-2 border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-              <Bot className="stroke-technology-purple drop-shadow-[0_0_3.1px_#8B5CF6]" />
-              <p className="font-bold">IA & Tecnologias</p>
-            </div>
-          </Link>
+  {/* IA & Tecnologias */}
+  <div className="w-full">
+    <NavLink to="/tecnologias" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <Bot
+            className={
+              isActive
+                ? "stroke-white"
+                : "stroke-technology-purple drop-shadow-[0_0_3.1px_#8B5CF6]"
+            }
+          />
+          <p className="font-bold">IA & Tecnologias</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-        {/* Métodos de estudos */}
-        <div className="w-full">
-          <Link to="/metodos-estudo" className="block">
-            <div className="bg-base-white text-black py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center border-2 border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-              <BookOpen />
-              <p className="font-bold">Métodos de estudos</p>
-            </div>
-          </Link>
+  {/* Métodos de estudos */}
+  <div className="w-full">
+    <NavLink to="/metodos-estudo" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <BookOpen />
+          <p className="font-bold">Métodos de estudos</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-        {/* Classificação */}
-        <div className="w-full">
-          <Link to="/classificacao" className="block">
-            <div className="bg-base-white text-black py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center border-2 border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-              <Timeline />
-              <p className="font-bold">Classificação</p>
-            </div>
-          </Link>
+  {/* Classificação */}
+  <div className="w-full">
+    <NavLink to="/classificacao" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <Timeline />
+          <p className="font-bold">Classificação</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-        {/* Configurações */}
-        <div className="w-full">
-          <Link to="/configuracoes" className="block">
-            <div className="bg-base-white text-black py-[18px] px-[16px] w-full rounded-basic flex flex-row gap-[15px] items-center border-2 border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)] transition-all cursor-pointer">
-              <Settings />
-              <p className="font-bold">Configurações</p>
-            </div>
-          </Link>
+  {/* Configurações */}
+  <div className="w-full">
+    <NavLink to="/configuracoes" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <Settings />
+          <p className="font-bold">Configurações</p>
         </div>
+      )}
+    </NavLink>
+  </div>
 
-      </div>
-
-      {/* Perfil */}
-      <div className="flex-1">
-        perfil
-      </div>
-
+ {/* Perfil */}   {/*Apenas uma cópia de botão da sideBar, depois eu altero para a versão correta*/}
+  <div className="w-full">
+    <NavLink to="/Perfil" className="block">
+      {({ isActive }) => (
+        <div
+          className={`py-[7px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+            ${
+              isActive
+                ? "bg-[#4f7cff] text-white"
+                : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
+            }`}
+        >
+          <UserRound />
+          <p className="font-bold">Perfil</p>
+          <p className="">user01</p>
+        </div>
+      )}
+    </NavLink>
+  </div>
     </div>
   );
 }

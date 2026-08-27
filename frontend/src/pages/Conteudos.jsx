@@ -40,7 +40,7 @@ function Conteudos() {
 
         {/* Barra de pesquisa */}
 
-        <div className="w-[330px] h-[48px] border border-primary-blue rounded-basic flex items-center px-4 gap-3">
+        <div className="w-[330px] h-[48px] border border-[#4f7cff] rounded-lg flex items-center px-4 gap-3">
 
           <Search
             size={20}
@@ -59,11 +59,11 @@ function Conteudos() {
 
       {/* Questionário */}
 
-      <div className="mt-7 w-full bg-primary-blue rounded-basic px-5 py-3 flex items-center justify-between text-white">
+      <div className="mt-7 w-full bg-[#4f7cff] rounded-lg px-5 py-3 flex items-center justify-between text-white">
 
         <div className="flex items-center gap-3">
 
-          <div className="bg-white text-primary-blue rounded-full p-1">
+          <div className="bg-white text-[#4f7cff] rounded-full p-1">
             <CircleHelp size={18} />
           </div>
 
@@ -81,11 +81,11 @@ function Conteudos() {
 
         <div className="flex gap-3">
 
-          <button className="border border-white rounded-lg px-5 py-2 text-[10px] hover:bg-white hover:text-primary-blue transition">
+          <button className="border border-white rounded-lg px-5 py-2 text-[10px] hover:bg-white hover:text-[#4f7cff] transition">
             Quero fazer!
           </button>
 
-          <button className="bg-white text-primary-blue rounded-lg px-5 py-2 text-[10px] hover:bg-gray-300 transition">
+          <button className="bg-white text-[#4f7cff] border border-white rounded-lg px-5 py-2 text-[10px] hover:bg-[#4f7cff] hover:text-white transition">
             Talvez mais tarde
           </button>
 

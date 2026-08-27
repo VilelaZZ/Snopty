@@ -9,6 +9,7 @@ import Tecnologias from "./pages/Tecnologias";
 import MetodosEstudo from "./pages/MetodosEstudo";
 import Classificacao from "./pages/Classificacao";
 import Configuracoes from "./pages/Configuracoes";
+import Perfil from "./pages/Perfil";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/metodos-estudo" element={<MetodosEstudo />} />
             <Route path="/classificacao" element={<Classificacao />} />
             <Route path="/configuracoes" element={<Configuracoes />} />
+            <Route path="/perfil" element={<Perfil />} />
           </Routes>
         </main>
 

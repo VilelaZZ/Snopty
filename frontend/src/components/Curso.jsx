@@ -15,7 +15,7 @@ function Curso({
 
   return (
 
-    <div className="min-w-[280px] w-[330px] hover:scale-101 transition bg-[#1f2937] text-white rounded-basic shadow-md overflow-hidden flex-shrink-0">
+    <div className="min-w-[280px] w-[330px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
 
       {/* Imagem */}
 
@@ -37,7 +37,7 @@ function Curso({
             size={19}
             className={
               salvo
-                ? "text-primary-blue"
+                ? "text-[#4f7cff]"
                 : "text-gray-400"
             }
             fill={salvo ? "currentColor" : "none"}
