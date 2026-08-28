@@ -11,11 +11,15 @@ function Curso({
   imagem,
   salvo,
   onSalvar,
+  onAbrir,
 }) {
 
   return (
 
-    <div className="min-w-[280px] w-[330px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
+    <div
+      onClick={onAbrir}
+      className="min-w-[280px] w-[330px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0 cursor-pointer"
+    >
 
       {/* Imagem */}
 
@@ -28,8 +32,12 @@ function Curso({
         />
 
         {/* salvar */}
+
         <button
-          onClick={onSalvar}
+          onClick={(evento) => {
+            evento.stopPropagation();
+            onSalvar();
+          }}
           className="absolute top-3 right-3 bg-white rounded-md p-1.5 shadow hover:scale-105 transition"
         >
 

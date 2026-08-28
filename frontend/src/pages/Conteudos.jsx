@@ -7,11 +7,13 @@ import {
   CircleHelp,
 } from "lucide-react";
 
-import Curso from "../components/Curso";
+import Curso from "../components/Curso";            //chamando o componente curso
+import ModalCurso from "../components/ModalCurso";  //chamando o componente de modal do curso
 
 function Conteudos() {
 
-  const [salvos, setSalvos] = useState([]); //guardar cursos que foram salvos
+  const [salvos, setSalvos] = useState([]);                      //guardar cursos que foram salvos
+  const [cursoSelecionado, setCursoSelecionado] = useState(null); // entrar na modal do curso
 
   const alternarSalvo = (curso) => {  // add ou remover o curso
     setSalvos((atual) =>
@@ -113,15 +115,24 @@ function Conteudos() {
 
         <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-thin">
 
-          <Curso
-            titulo="Tudo sobre Python"
-            categoria="Back-end"
-            duracao="200h"
-            avaliacao={5}
-            imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
-            salvo={salvos.includes("python")}
-            onSalvar={() => alternarSalvo("python")}
-          />
+        <Curso
+          titulo="Tudo sobre Python"                  //Infos do curso
+          categoria="Back-end"
+          duracao="200h"
+          avaliacao={5}
+          imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
+          salvo={salvos.includes("python")}
+          onSalvar={() => alternarSalvo("python")}
+          onAbrir={() =>
+            setCursoSelecionado({                     //O Set ta chamando dnv as informações pra jogar no modal
+            titulo: "Tudo sobre Python",
+            categoria: "Back-end",
+            duracao: "200h",
+            avaliacao: 5,
+            imagem: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
+            })
+          }
+        />
 
           <Curso
             titulo="Inglês para conversação"
@@ -208,7 +219,17 @@ function Conteudos() {
         </div>
 
       </section>
-
+ 
+      {/* modal */}
+      {cursoSelecionado && (
+        <ModalCurso
+          titulo={cursoSelecionado.titulo}
+          categoria={cursoSelecionado.categoria}
+          duracao={cursoSelecionado.duracao}
+          avaliacao={cursoSelecionado.avaliacao}
+          imagem={cursoSelecionado.imagem}
+          onClose={() => setCursoSelecionado(null)}
+        />)}
     </div>
   );
 }
