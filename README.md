@@ -86,6 +86,31 @@ Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
+Antes de executar o migrate, crie uma pasta .env no backend e adicione:
+```bash
+SUPABASE_URL=https://wgqtljewqarqaoqqolbe.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable_Y8kJueFGnr1_9RPWn8AlWA_B2ifgHUB
+SUPABASE_SECRET_KEY=
+SUPABASE_JWKS_URL=https://wgqtljewqarqaoqqolbe.supabase.co/auth/v1/.well-known/jwks.json
+
+DB_NAME=postgres
+DB_USER=postgres.wgqtljewqarqaoqqolbe
+DB_PASSWORD=
+DB_HOST=aws-0-sa-east-1.pooler.supabase.com
+DB_PORT=5432
+```
+
+Link do Serviço(Tecnologia e Cursos)
+```bash
+http://127.0.0.1:8000/api/cursos/?format=api
+```
+```bash
+http://127.0.0.1:8000/api/tecnologias/?format=api
+```
+Link Editar e Excluir
+```bash
+http://127.0.0.1:8000/api/cursos/id do item que vc queira editar/
+```
 
 Execute as migrações:
 
