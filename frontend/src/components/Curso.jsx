@@ -5,17 +5,18 @@ import {
 
 function Curso({
   titulo,
-  categoria,
+  descricao,
+  tecnologia,
   duracao,
   avaliacao,
   imagem,
   salvo,
   onSalvar,
   onAbrir,
+  url,
 }) {
 
   return (
-
     <div
       onClick={onAbrir}
       className="min-w-[280px] w-[330px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0 cursor-pointer"
@@ -31,7 +32,7 @@ function Curso({
           className="w-full h-full object-cover"
         />
 
-        {/* salvar */}
+        {/* Salvar */}
 
         <button
           onClick={(evento) => {
@@ -55,7 +56,7 @@ function Curso({
 
       </div>
 
-      {/* Informações curso */}
+      {/* Informações do curso */}
 
       <div className="p-4">
 
@@ -64,12 +65,11 @@ function Curso({
         </h3>
 
         <p className="text-xs text-white mt-1">
-          {categoria} • Intermediário
+          Tecnologia: {tecnologia}
         </p>
 
         <p className="text-xs text-gray-400 mt-3">
-          Aprenda os principais conceitos e desenvolva novas
-          habilidades através deste curso.
+          {descricao}
         </p>
 
         <p className="text-[10px] text-gray-400 mt-3">
@@ -87,13 +87,11 @@ function Curso({
               <Star
                 key={estrela}
                 size={14}
-
                 className={
                   estrela <= avaliacao
                     ? "text-[#f59e0b]"
                     : "text-gray-300"
                 }
-
                 fill={
                   estrela <= avaliacao
                     ? "currentColor"
@@ -106,6 +104,18 @@ function Curso({
           </div>
 
         </div>
+
+        {/* Acessar curso */}
+
+        <button
+          onClick={(evento) => {
+            evento.stopPropagation();
+            window.open(url, "_blank");
+          }}
+          className="mt-4 w-full bg-[#4f7cff] hover:bg-[#3d68db] text-white rounded-md py-2 text-xs font-bold transition"
+        >
+          Acessar curso
+        </button>
 
       </div>
 

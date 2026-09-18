@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Search,
@@ -7,15 +7,33 @@ import {
   CircleHelp,
 } from "lucide-react";
 
-import Curso from "../components/Curso";            //chamando o componente curso
-import ModalCurso from "../components/ModalCurso";  //chamando o componente de modal do curso
+import Curso from "../components/Curso";
+import ModalCurso from "../components/ModalCurso";
+
+import { listarCursos } from "../services/cursos.jsx";
 
 function Conteudos() {
 
-  const [salvos, setSalvos] = useState([]);                      //guardar cursos que foram salvos
-  const [cursoSelecionado, setCursoSelecionado] = useState(null); // entrar na modal do curso
+  const [cursos, setCursos] = useState([]);
+  const [salvos, setSalvos] = useState([]);
+  const [cursoSelecionado, setCursoSelecionado] = useState(null);
 
-  const alternarSalvo = (curso) => {  // add ou remover o curso
+  // Buscar cursos do backend
+  useEffect(() => {
+    async function carregarCursos() {
+      try {
+        const dados = await listarCursos();
+        setCursos(dados);
+      } catch (erro) {
+        console.error("Erro ao carregar cursos:", erro);
+      }
+    }
+
+    carregarCursos();
+  }, []);
+
+  // Adicionar ou remover curso dos salvos
+  const alternarSalvo = (curso) => {
     setSalvos((atual) =>
       atual.includes(curso)
         ? atual.filter((item) => item !== curso)
@@ -26,7 +44,7 @@ function Conteudos() {
   return (
     <div className="h-full overflow-y-auto px-10 py-7">
 
-      {/* Cabeçallho */}
+      {/* Cabeçalho */}
 
       <div className="flex items-center justify-between">
 
@@ -115,54 +133,21 @@ function Conteudos() {
 
         <div className="flex gap-5 overflow-x-auto pb-4 scrollbar-thin">
 
-        <Curso
-          titulo="Tudo sobre Python"                  //Infos do curso
-          categoria="Back-end"
-          duracao="200h"
-          avaliacao={5}
-          imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
-          salvo={salvos.includes("python")}
-          onSalvar={() => alternarSalvo("python")}
-          onAbrir={() =>
-            setCursoSelecionado({                     //O Set ta chamando dnv as informações pra jogar no modal
-            titulo: "Tudo sobre Python",
-            categoria: "Back-end",
-            duracao: "200h",
-            avaliacao: 5,
-            imagem: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
-            })
-          }
-        />
-
-          <Curso
-            titulo="Inglês para conversação"
-            categoria="Idiomas"
-            duracao="100h"
-            avaliacao={4}
-            imagem="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600"
-            salvo={salvos.includes("ingles")}
-            onSalvar={() => alternarSalvo("ingles")}
-          />
-
-          <Curso
-            titulo="Cálculo 1"
-            categoria="Matemática"
-            duracao="80h"
-            avaliacao={3}
-            imagem="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600"
-            salvo={salvos.includes("calculo")}
-            onSalvar={() => alternarSalvo("calculo")}
-          />
-
-          <Curso
-            titulo="JavaScript"
-            categoria="Programação"
-            duracao="120h"
-            avaliacao={5}
-            imagem="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600"
-            salvo={salvos.includes("javascript")}
-            onSalvar={() => alternarSalvo("javascript")}
-          />
+          {cursos.map((curso) => (
+            <Curso
+              key={curso.id}
+              titulo={curso.nome}
+              descricao={curso.descricao}
+              tecnologia={curso.tecnologia}
+              duracao="—"
+              avaliacao={5}
+              imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
+              salvo={salvos.includes(curso.id)}
+              onSalvar={() => alternarSalvo(curso.id)}
+              onAbrir={() => setCursoSelecionado(curso)}
+              url={curso.url}
+            />
+          ))}
 
         </div>
 
@@ -186,50 +171,47 @@ function Conteudos() {
 
         <div className="flex gap-5 overflow-x-auto pb-4">
 
-          <Curso
-            titulo="Level Design"
-            categoria="Game Design"
-            duracao="50h"
-            avaliacao={4}
-            imagem="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600"
-            salvo={salvos.includes("level")}
-            onSalvar={() => alternarSalvo("level")}
-          />
+          {cursos.map((curso) => (
+            <Curso
+              key={curso.id}
 
-          <Curso
-            titulo="Fundamentos do Marketing Digital"
-            categoria="Marketing"
-            duracao="25h"
-            avaliacao={5}
-            imagem="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600"
-            salvo={salvos.includes("marketing")}
-            onSalvar={() => alternarSalvo("marketing")}
-          />
+              titulo={curso.nome}
 
-          <Curso
-            titulo="Introdução ao Design"
-            categoria="Design"
-            duracao="30h"
-            avaliacao={4}
-            imagem="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600"
-            salvo={salvos.includes("design")}
-            onSalvar={() => alternarSalvo("design")}
-          />
+              categoria={curso.plataforma}
+
+              duracao="—"
+
+              avaliacao={5}
+
+              imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
+
+              salvo={salvos.includes(curso.id)}
+
+              onSalvar={() => alternarSalvo(curso.id)}
+
+              onAbrir={() => setCursoSelecionado(curso)}
+
+              url={curso.url}
+            />
+          ))}
 
         </div>
 
       </section>
- 
-      {/* modal */}
+
+      {/* Modal */}
+
       {cursoSelecionado && (
         <ModalCurso
-          titulo={cursoSelecionado.titulo}
-          categoria={cursoSelecionado.categoria}
-          duracao={cursoSelecionado.duracao}
-          avaliacao={cursoSelecionado.avaliacao}
-          imagem={cursoSelecionado.imagem}
+          titulo={cursoSelecionado.nome}
+          categoria={cursoSelecionado.plataforma}
+          duracao="—"
+          avaliacao={5}
+          imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
           onClose={() => setCursoSelecionado(null)}
-        />)}
+        />
+      )}
+
     </div>
   );
 }
