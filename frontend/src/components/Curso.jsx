@@ -19,7 +19,7 @@ function Curso({
   return (
     <div
       onClick={onAbrir}
-      className="min-w-[280px] w-[330px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0 cursor-pointer"
+      className="min-w-[280px] w-[330px] h-[440px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0 cursor-pointer"
     >
 
       {/* Imagem */}
@@ -60,15 +60,15 @@ function Curso({
 
       <div className="p-4">
 
-        <h3 className="font-bold text-sm">
+        <h3 className="font-bold text-sm h-[40px] line-clamp-2">
           {titulo}
         </h3>
 
-        <p className="text-xs text-white mt-1">
+        <p className="text-xs text-white mt-1 truncate">
           Tecnologia: {tecnologia}
         </p>
 
-        <p className="text-xs text-gray-400 mt-3">
+        <p className="text-xs text-gray-400 mt-3 h-[45px] line-clamp-3">
           {descricao}
         </p>
 

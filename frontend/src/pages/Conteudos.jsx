@@ -174,23 +174,15 @@ function Conteudos() {
           {cursos.map((curso) => (
             <Curso
               key={curso.id}
-
               titulo={curso.nome}
-
-              categoria={curso.plataforma}
-
+              descricao={curso.descricao}
+              tecnologia={curso.tecnologia}
               duracao="—"
-
               avaliacao={5}
-
               imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
-
               salvo={salvos.includes(curso.id)}
-
               onSalvar={() => alternarSalvo(curso.id)}
-
               onAbrir={() => setCursoSelecionado(curso)}
-
               url={curso.url}
             />
           ))}
