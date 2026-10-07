@@ -14,24 +14,49 @@ import Perfil from "./pages/Perfil";
 function App() {
   return (
     <BrowserRouter>
-      <div className="h-screen w-full flex flex-row">
+
+      <div className="h-screen w-full flex overflow-hidden">
 
         <Sidebar />
 
-        <main className="w-3/4 bg-base-white overflow-hidden">
+        <main className="flex-1 min-w-0 h-full bg-base-white overflow-hidden">
+
           <Routes>
+
             <Route path="/" element={<Inicio />} />
+
             <Route path="/conteudos" element={<Conteudos />} />
+
             <Route path="/calendario" element={<Calendario />} />
+
             <Route path="/tecnologias" element={<Tecnologias />} />
-            <Route path="/metodos-estudo" element={<MetodosEstudo />} />
-            <Route path="/classificacao" element={<Classificacao />} />
-            <Route path="/configuracoes" element={<Configuracoes />} />
-            <Route path="/perfil" element={<Perfil />} />
+
+            <Route
+              path="/metodos-estudo"
+              element={<MetodosEstudo />}
+            />
+
+            <Route
+              path="/classificacao"
+              element={<Classificacao />}
+            />
+
+            <Route
+              path="/configuracoes"
+              element={<Configuracoes />}
+            />
+
+            <Route
+              path="/perfil"
+              element={<Perfil />}
+            />
+
           </Routes>
+
         </main>
 
       </div>
+
     </BrowserRouter>
   );
 }
