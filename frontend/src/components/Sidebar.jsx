@@ -1,3 +1,4 @@
+
 import { NavLink } from "react-router-dom";
 
 import {
@@ -34,7 +35,7 @@ function Sidebar() {
 
       {/* Início */}
       <div className="w-full">
-        <NavLink to="/" className="block">
+        <NavLink to="/inicio" className="block">
           {({ isActive }) => (
             <div
               className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer

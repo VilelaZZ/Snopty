@@ -5,21 +5,17 @@ import {
 
 function Curso({
   titulo,
-  descricao,
-  tecnologia,
   duracao,
   avaliacao,
   imagem,
   salvo,
   onSalvar,
   onAbrir,
-  url,
 }) {
-
   return (
     <div
       onClick={onAbrir}
-      className="min-w-[280px] w-[330px] h-[440px] hover:scale-101 transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0 cursor-pointer"
+      className="min-w-[280px] w-[330px] h-[300px] hover:scale-[1.01] transition bg-[#1f2937] text-white rounded-lg shadow-md overflow-hidden flex-shrink-0 cursor-pointer"
     >
 
       {/* Imagem */}
@@ -41,7 +37,6 @@ function Curso({
           }}
           className="absolute top-3 right-3 bg-white rounded-md p-1.5 shadow hover:scale-105 transition"
         >
-
           <Bookmark
             size={19}
             className={
@@ -51,7 +46,6 @@ function Curso({
             }
             fill={salvo ? "currentColor" : "none"}
           />
-
         </button>
 
       </div>
@@ -60,19 +54,15 @@ function Curso({
 
       <div className="p-4">
 
+        {/* Título */}
+
         <h3 className="font-bold text-sm h-[40px] line-clamp-2">
           {titulo}
         </h3>
 
-        <p className="text-xs text-white mt-1 truncate">
-          Tecnologia: {tecnologia}
-        </p>
+        {/* Duração */}
 
-        <p className="text-xs text-gray-400 mt-3 h-[45px] line-clamp-3">
-          {descricao}
-        </p>
-
-        <p className="text-[10px] text-gray-400 mt-3">
+        <p className="text-[10px] text-gray-400 mt-2">
           Duração do curso: {duracao}
         </p>
 
@@ -83,7 +73,6 @@ function Curso({
           <div className="inline-flex gap-1 border bg-[#EF4444] border-[#EF4444] rounded-md px-2 py-1">
 
             {[1, 2, 3, 4, 5].map((estrela) => (
-
               <Star
                 key={estrela}
                 size={14}
@@ -98,24 +87,11 @@ function Curso({
                     : "none"
                 }
               />
-
             ))}
 
           </div>
 
         </div>
-
-        {/* Acessar curso */}
-
-        <button
-          onClick={(evento) => {
-            evento.stopPropagation();
-            window.open(url, "_blank");
-          }}
-          className="mt-4 w-full bg-[#4f7cff] hover:bg-[#3d68db] text-white rounded-md py-2 text-xs font-bold transition"
-        >
-          Acessar curso
-        </button>
 
       </div>
 

@@ -32,11 +32,11 @@ function Conteudos() {
   }, []);
 
   // Adicionar ou remover curso dos salvos
-  const alternarSalvo = (curso) => {
+  const alternarSalvo = (cursoId) => {
     setSalvos((atual) =>
-      atual.includes(curso)
-        ? atual.filter((item) => item !== curso)
-        : [...atual, curso]
+      atual.includes(cursoId)
+        ? atual.filter((id) => id !== cursoId)
+        : [...atual, cursoId]
     );
   };
 
@@ -136,15 +136,12 @@ function Conteudos() {
             <Curso
               key={curso.id}
               titulo={curso.nome}
-              descricao={curso.descricao}
-              tecnologia={curso.tecnologia}
               duracao="—"
               avaliacao={5}
               imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
               salvo={salvos.includes(curso.id)}
               onSalvar={() => alternarSalvo(curso.id)}
               onAbrir={() => setCursoSelecionado(curso)}
-              url={curso.url}
             />
           ))}
 
@@ -174,15 +171,12 @@ function Conteudos() {
             <Curso
               key={curso.id}
               titulo={curso.nome}
-              descricao={curso.descricao}
-              tecnologia={curso.tecnologia}
               duracao="—"
               avaliacao={5}
               imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
               salvo={salvos.includes(curso.id)}
               onSalvar={() => alternarSalvo(curso.id)}
               onAbrir={() => setCursoSelecionado(curso)}
-              url={curso.url}
             />
           ))}
 
@@ -195,10 +189,12 @@ function Conteudos() {
       {cursoSelecionado && (
         <ModalCurso
           titulo={cursoSelecionado.nome}
-          categoria={cursoSelecionado.plataforma}
+          descricao={cursoSelecionado.descricao}
+          plataforma={cursoSelecionado.plataforma}
           duracao="—"
           avaliacao={5}
           imagem="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=600"
+          url={cursoSelecionado.url}
           onClose={() => setCursoSelecionado(null)}
         />
       )}
