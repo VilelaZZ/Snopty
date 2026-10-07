@@ -13,7 +13,6 @@ import ModalCurso from "../components/ModalCurso";
 import { listarCursos } from "../services/cursos.jsx";
 
 function Conteudos() {
-
   const [cursos, setCursos] = useState([]);
   const [salvos, setSalvos] = useState([]);
   const [cursoSelecionado, setCursoSelecionado] = useState(null);
