@@ -1,3 +1,4 @@
+
 from django.db import models
 
 
@@ -14,6 +15,7 @@ class Curso(models.Model):
     descricao = models.TextField(blank=True)
     plataforma = models.CharField(max_length=100)
     url = models.URLField()
+    duracao = models.CharField(max_length=50, blank=True)
     tecnologia = models.ForeignKey(
         Tecnologia,
         on_delete=models.CASCADE,
