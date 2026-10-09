@@ -166,12 +166,12 @@ function Sidebar() {
     </NavLink>
   </div>
 
- {/* Perfil */}   {/*Apenas uma cópia de botão da sideBar, depois eu altero para a versão correta*/}
+  {/* Perfil */}
   <div className="w-full">
-    <NavLink to="/Perfil" className="block">
+    <NavLink to="/perfil" className="block">
       {({ isActive }) => (
         <div
-          className={`py-[7px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
+          className={`py-[18px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
             ${
               isActive
                 ? "bg-[#4f7cff] text-white"
@@ -179,13 +179,12 @@ function Sidebar() {
             }`}
         >
           <UserRound />
-          <p className="font-bold">Perfil</p>
-          <p className="">user01</p>
+            <p className="font-bold">Perfil</p>
         </div>
       )}
     </NavLink>
   </div>
-    </div>
+</div>
   );
 }
 
