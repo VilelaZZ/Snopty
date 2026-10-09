@@ -172,26 +172,6 @@ function Sidebar() {
         </NavLink>
       </div>
 
-      {/* Perfil */}
-      <div className="w-full">
-        <NavLink to="/perfil" className="block">
-          {({ isActive }) => (
-            <div
-              className={`py-[7px] px-[16px] w-full rounded-lg flex flex-row gap-[15px] items-center border-2 transition-all cursor-pointer
-                ${
-                  isActive
-                    ? "bg-[#4f7cff] text-white"
-                    : "bg-base-white text-black border-transparent hover:border-[#6B7280] hover:shadow-[inset_0_0_5px_1px_rgba(0,0,0,0.08)]"
-                }`}
-            >
-              <UserRound />
-              <p className="font-bold">Perfil</p>
-              <p>user01</p>
-            </div>
-          )}
-        </NavLink>
-      </div>
-
   {/* Perfil */}
   <div className="w-full">
     <NavLink to="/perfil" className="block">
